@@ -1,10 +1,9 @@
----
 # Cookie Cats — Gate Position A/B Test Analysis
 游戏关卡门位置 A/B 实验全流程分析
 
 ## 核心结论
 
-| 指标 | gate_30（对照） | gate_40（实验） | Δ | p值 | 结论 | 
+| 指标 | gate_30（对照） | gate_40（实验） | Δ | p值 | 结论 |
 |---|---|---|---|---|---|
 | 7日留存率（主指标） | 19.02% | 18.20% | +0.82 pp | 0.0016 | 显著 ✅ |
 | 1日留存率（次要） | 44.82% | 44.23% | +0.59 pp | 0.074 | 不显著 ❌ |
@@ -12,8 +11,6 @@
 
 **最终建议：保留 gate_30，不上线 gate_40。**
 门位置制造「预约式回访」节律，是留存正向驱动而非单纯摩擦；错误上线 gate_40 估算月度留存损失约 8,200 人。
-
----
 
 ## 分析流程
 
@@ -27,32 +24,26 @@
 | Phase 5 业务影响 | 规模化损失估算 · 预约式回访机制解释 · 统计显著性vs实际显著性讨论 |
 | Phase 6 决策 | 基于预注册规则的最终建议 · 后续实验假设 · 分析局限性 |
 
----
-
 ## 文件说明
 
 | 文件 | 说明 |
 |---|---|
-| `01_data_import.sql` | 建表、VARCHAR Staging入库、CASE WHEN类型转换、NULL无损校验 |
-| `02_base_metric.sql` | SRM检查、跨组污染检查、核心指标聚合（留存率/游戏局数）、数据质量探查 |
-| `abtest.py` | 完整Python分析：数据重建→有效性检查→功效分析→z检验→Bootstrap说明→可视化 |
-| `compare.csv` | SQL聚合输出的分组指标摘要，作为Python脚本的输入文件 |
-| `ab_test_results.png` | 6图可视化：分组大小SRM · 1日/7日留存对比 · 游戏局数 · 7日留存95%CI · 决策摘要 |
-| `CookieCats_ABTest_Report.pdf` | 完整分析报告（7页），含实验设计文档、数据处理、统计检验、业务决策 |
-
----
+| 01_data_import.sql | 建表、VARCHAR Staging入库、CASE WHEN类型转换、NULL无损校验 |
+| 02_base_metric.sql | SRM检查、跨组污染检查、核心指标聚合、数据质量探查 |
+| abtest.py | 完整Python分析：数据重建→有效性检查→功效分析→z检验→可视化 |
+| compare.csv | SQL聚合输出的分组指标摘要，Python脚本的输入文件 |
+| ab_test_results.png | 6图可视化：分组大小SRM · 1日/7日留存 · 游戏局数 · 7日留存95%CI · 决策摘要 |
+| CookieCats_ABTest_Report.pdf | 完整分析报告（7页），含实验设计、数据处理、统计检验、业务决策 |
 
 ## 工具链
 
-- **数据库**：MySQL · DBeaver
-- **Python**：pandas · numpy · scipy · matplotlib
-- **可视化**：Power BI · matplotlib
-
----
+- 数据库：MySQL · DBeaver
+- Python：pandas · numpy · scipy · matplotlib
+- 可视化：Power BI · matplotlib
 
 ## 数据来源
 
 Cookie Cats 公开实验数据集，由 Tactile Entertainment 提供，通过 DataCamp 发布。
 共 90,189 名玩家 · 5个字段（userid / version / sum_gamerounds / retention_1 / retention_7）· 实验窗口内全部新安装用户。
 
-> 说明：本项目为对已完成公开实验数据的回溯分析；实验设计文档按企业上线前规范复原。
+说明：本项目为对已完成公开实验数据的回溯分析；实验设计文档按企业上线前规范复原。
