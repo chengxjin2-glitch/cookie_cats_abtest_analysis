@@ -1,0 +1,2 @@
+total_events,active_users,active_products,total_sessions,purchase_users,purchase_sessions,purchase_events,valid_purchase_events,estimated_transaction_amount,user_purchase_conversion_pct,session_purchase_conversion_pct,avg_purchase_event_amount
+19583742,1639358,54571,4535941,110518,155617,1286102,1285982,6348267.70,6.74,3.43,4.94

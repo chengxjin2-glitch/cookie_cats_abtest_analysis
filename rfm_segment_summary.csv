@@ -1,0 +1,4 @@
+funnel_type,analysis_unit,view_stage_count,cart_stage_count,purchase_stage_count,view_to_cart_pct,cart_to_purchase_pct,view_to_purchase_pct
+user_loose,user,1597754,358026,104757,22.41,29.26,6.56
+session_loose,session,4281001,788439,106517,18.42,13.51,2.49
+session_strict,session,4281001,587041,71310,13.71,12.15,1.67

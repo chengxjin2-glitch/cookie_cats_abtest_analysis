@@ -1,0 +1,11 @@
+# 原始 Kaggle CSV 体积较大，不纳入仓库
+data/*.csv
+!data/README.md
+
+# Power BI 临时和本地锁文件
+~$*.pbix
+*.tmp
+
+# 系统文件
+.DS_Store
+Thumbs.db
